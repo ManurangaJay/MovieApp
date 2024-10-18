@@ -12,6 +12,8 @@ public interface MovieService {
 
     public Optional<Movie> getMovieById(ObjectId id);
 
+    public Optional<Movie> getMovieByImdbId(String imdbId);
+
 }
 
 

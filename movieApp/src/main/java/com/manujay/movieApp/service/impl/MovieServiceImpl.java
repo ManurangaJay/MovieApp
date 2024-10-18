@@ -26,6 +26,12 @@ public class MovieServiceImpl implements MovieService {
         return movieRepository.findById(id);
     }
 
+    @Override
+    public Optional<Movie> getMovieByImdbId(String imdbId) {
+
+        return movieRepository.findByImdbId(imdbId);
+    }
+
 }
 
 
