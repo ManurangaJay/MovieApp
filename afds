@@ -1,0 +1,32 @@
+warning: in the working copy of 'client-app/src/App.js', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/client-app/src/App.js b/client-app/src/App.js[m
+[1mindex 1c6d49d..c3d206e 100644[m
+[1m--- a/client-app/src/App.js[m
+[1m+++ b/client-app/src/App.js[m
+[36m@@ -3,6 +3,7 @@[m [mimport api from './api/axiosConfig';[m
+ import { useState, useEffect } from 'react'; [m
+ import { Route, Routes } from 'react-router-dom';[m
+ import Layout from './components/Layout';[m
+[32m+[m[32mimport Home from './components/home/Home';[m
+ [m
+ function App() {[m
+   const [movies, setMovies] = useState();[m
+[36m@@ -11,7 +12,7 @@[m [mfunction App() {[m
+ [m
+     try {[m
+       [m
+[31m-      const response = await api.get("http://localhost:8080/movies/all");[m
+[32m+[m[32m      const response = await api.get("http://localhost:8080/movies");[m
+       console.log(response.data); [m
+       setMovies(response.data);[m
+     [m
+[36m@@ -28,7 +29,8 @@[m [mfunction App() {[m
+   return ([m
+     <div className="App">[m
+       <Routes>[m
+[31m-        <Route path="/" element={Layout}>[m
+[32m+[m[32m        <Route path="/" element={<Layout/>}>[m
+[32m+[m[32m          <Route path="/" element={<Home movies={movies} />}></Route>[m
+         </Route>[m
+       </Routes>[m
+ [m
